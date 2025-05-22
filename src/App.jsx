@@ -94,7 +94,7 @@ function App() {
         </div>
         <div className="flex gap-4 mt-6 justify-center">
           <div className="w-1/2">
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 ">In Progress Task</h3>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 ">Progress Task</h3>
             <ul
               id="progress-list"
               onDragOver={allowDrop}

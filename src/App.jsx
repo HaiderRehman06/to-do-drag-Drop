@@ -80,11 +80,11 @@ function App() {
 
     li.onclick = function () {
       // Move to completed list
-      if (!li.classList.contains('line-through')) {
-        li.classList;
+      if (!li.classList.contains('completed')) {
+        li.classList.add('completed');
         document.getElementById('completed-list').appendChild(li);
       } else {
-        li.classList.remove();
+        li.classList.remove('completed');
         progressList.appendChild(li);
       }
     };
@@ -101,7 +101,7 @@ function App() {
     li.appendChild(removeButton);
 
     progressList.appendChild(li);
-    taskInput.value = 'completed-list';
+    taskInput.value = '';
   }
 
   // Drag-over and drop for both lists
@@ -118,9 +118,9 @@ function App() {
     if (window.dragged) {
       document.getElementById(listId).appendChild(window.dragged);
       if (listId === 'completed-list') {
-        window.dragged.classList.add();
+        window.dragged.classList.add('completed');
       } else {
-        window.dragged.classList.remove();
+        window.dragged.classList.remove('completed');
       }
     }
   }
@@ -166,6 +166,14 @@ function App() {
           </div>
         </div>
       </div>
+      <style>
+        {`
+          .completed {
+            text-decoration: line-through;
+            color: grey;
+          }
+        `}
+      </style>
     </div>
   );
 }

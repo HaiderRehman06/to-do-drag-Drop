@@ -172,6 +172,18 @@ function App() {
             text-decoration: line-through;
             color: grey;
           }
+             ::-webkit-scrollbar{
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track{
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background:linear-gradient(to bottom,#bdc3c7 , #4a99da, #2c3e50 );
+            border-radius: 3.5px;
+        }
         `}
       </style>
     </div>

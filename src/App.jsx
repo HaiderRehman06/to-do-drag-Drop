@@ -1,57 +1,6 @@
 
-// import "./App.css";
-
-// function App() {
-
-//   function addTask() {
-
-//     var Tasklist = document.getElementById('tasklist');
-//     var Taskinput = document.getElementById('taskinput');
-
-//     var inputValue = Taskinput.value;
-
-//     if (!inputValue.trim()) {
-//       return alert("Input can't be empty!");
-//     }
-
-//     var li = document.createElement('li');
-//     li.textContent = inputValue;
-
-//     var removeButton = document.createElement('button');
-//     removeButton.textContent = 'Remove';
-//     removeButton.className = 'remove-btn';
-//     removeButton.onclick = function () {
-//       Tasklist.removeChild(li);
-//     };
-
-//     li.onclick = function () {
-//       li.classList.toggle('completed');
-//     };
-
-//     li.appendChild(removeButton);
-
-//     Tasklist.appendChild(li);
-//     Taskinput.value = '';
-//   }
-
-//   return (
-//     <div>
-//       <input type="text" placeholder='Enter a Task' id='taskinput' />
-//       <button onClick={addTask}>Add Task</button>
-//       <ul id="tasklist"></ul>
-//       <h1>Hello</h1>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
 function App() {
+
   function addTask() {
     var progressList = document.getElementById('progress-list');
     var taskInput = document.getElementById('taskinput');
@@ -65,7 +14,7 @@ function App() {
     li.textContent = inputValue;
     li.draggable = true;
     li.className =
-      'bg-gray-50 border border-gray-300 px-4 py-2 mb-2 rounded flex justify-between items-center transition-colors duration-400 hover:bg-gray-100 mr-2';
+      'border border-gray-300 px-3 py-1 mb-2 rounded flex justify-between items-center';
 
     // Drag events
     li.ondragstart = function (e) {
@@ -90,9 +39,9 @@ function App() {
     };
 
     var removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
+    removeButton.textContent = '-';
     removeButton.className =
-      'bg-red-400 hover:bg-red-600 text-white px-2 py-1 rounded text-xs ml-2';
+      'bg-red-500 text-white rounded px-2 py-1 text-xs ml-2 cursor-pointer hover:bg-red-600 font-semibold';
     removeButton.onclick = function (e) {
       e.stopPropagation();
       li.parentNode.removeChild(li);
@@ -126,42 +75,42 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div className="bg-white rounded-xl shadow-xl p-8 w-full max-w-2xl text-center">
-        <h1 className="text-blue-600 text-2xl mb-6 font-bold animate-slide-down">Task Manager</h1>
-        <div className="flex items-center mb-4">
+    <div className="flex justify-center items-center h-screen bg-gray-300">
+      <div className="bg-white p-10 rounded-[10px] shadow-xl/30 m-5">
+        <h1 className="text-center text-3xl font-semibold text-blue-500 mb-8">To-Do List</h1>
+        <div className="">
           <input
             type="text"
             placeholder="Enter a Task"
             id="taskinput"
-            className="w-3/4 px-4 py-2 border-2 border-gray-300 rounded mr-4 focus:border-blue-600 transition duration-300"
+            className="w-100 outline-none border-2 border-black-300 rounded focus:border-blue-500 p-2 font-light tracking-wider"
           />
           <button
             onClick={addTask}
-            className="px-4 py-2 bg-blue-400 hover:bg-blue-700 text-white rounded transition duration-300"
+            className="px-5 bg-blue-400 hover:bg-blue-600 ml-2 rounded text-white p-2 cursor-pointer"
           >
             Add Task
           </button>
         </div>
-        <div className="flex gap-8 mt-6 justify-center">
+        <div className="flex gap-4 mt-6 justify-center">
           <div className="w-1/2">
-            <h3 className="text-lg font-semibold mb-2 text-blue-700">In Progress</h3>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 ">In Progress Task</h3>
             <ul
               id="progress-list"
               onDragOver={allowDrop}
               onDragLeave={removeDrop}
               onDrop={e => dropTask(e, 'progress-list')}
-              className="min-h-10 border border-gray-200 p-3 rounded max-h-52 overflow-y-auto"
+              className=" border border-gray-200 p-3 rounded max-h-55 overflow-y-auto"
             ></ul>
           </div>
           <div className="w-1/2">
-            <h3 className="text-lg font-semibold mb-2 text-green-400">Completed</h3>
+            <h3 className="text-lg mb-2 font-semibold text-green-600">Completed Tasks</h3>
             <ul
               id="completed-list"
               onDragOver={allowDrop}
               onDragLeave={removeDrop}
               onDrop={e => dropTask(e, 'completed-list')}
-              className="min-h-10 border border-gray-200 p-3 rounded max-h-55 overflow-y-auto"
+              className=" border border-gray-200 p-3 rounded max-h-55 overflow-y-auto"
             ></ul>
           </div>
         </div>
@@ -172,18 +121,6 @@ function App() {
             text-decoration: line-through;
             color: grey;
           }
-             ::-webkit-scrollbar{
-            width: 10px;
-            height: 10px;
-        }
-        ::-webkit-scrollbar-track{
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb{
-            background:linear-gradient(to bottom,#bdc3c7 , #4a99da, #2c3e50 );
-            border-radius: 3.5px;
-        }
         `}
       </style>
     </div>

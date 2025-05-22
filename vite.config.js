@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   base:"/to-do-drag-Drop/",
-  plugins: [react(), tailwindcss()]
+  plugins: [react(),tailwindcss()]
 })

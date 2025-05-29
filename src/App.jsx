@@ -22,6 +22,7 @@ function App() {
       li.classList.add('opacity-50');
       window.dragged = li;
     };
+
     li.ondragend = function () {
       li.classList.remove('opacity-50');
       window.dragged = null;
@@ -38,6 +39,7 @@ function App() {
       }
     };
 
+
     var removeButton = document.createElement('button');
     removeButton.textContent = '-';
     removeButton.className =
@@ -51,6 +53,7 @@ function App() {
 
     progressList.appendChild(li);
     taskInput.value = '';
+    
   }
 
   // Drag-over and drop for both lists
@@ -78,22 +81,22 @@ function App() {
     <div className="flex justify-center items-center h-screen bg-gray-300">
       <div className="bg-white p-10 rounded-[10px] shadow-xl/30 m-5">
         <h1 className="text-center text-3xl font-semibold text-blue-500 mb-8">To-Do List</h1>
-        <div className="">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
           <input
             type="text"
             placeholder="Enter a Task"
             id="taskinput"
-            className="w-100 outline-none border-2 border-black-300 rounded focus:border-blue-500 p-2 font-light tracking-wider"
+            className="w-full sm:w-100 outline-none border-2 border-black-300 rounded focus:border-blue-500 p-2 font-light tracking-wider"
           />
           <button
             onClick={addTask}
-            className="px-5 bg-blue-400 hover:bg-blue-600 ml-2 rounded text-white p-2 cursor-pointer"
+            className="w-full sm:w-auto px-5 bg-blue-400 hover:bg-blue-600 sm:ml-2 rounded text-white p-2 cursor-pointer mt-2 sm:mt-0"
           >
             Add Task
           </button>
         </div>
-        <div className="flex gap-4 mt-6 justify-center">
-          <div className="w-1/2">
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+          <div className="w-full sm:w-1/2">
             <h3 className="text-lg font-semibold mb-2 text-blue-600 ">Progress Task</h3>
             <ul
               id="progress-list"
@@ -103,7 +106,7 @@ function App() {
               className=" border border-gray-200 p-3 rounded max-h-55 overflow-y-auto"
             ></ul>
           </div>
-          <div className="w-1/2">
+          <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
             <h3 className="text-lg mb-2 font-semibold text-green-600">Completed Tasks</h3>
             <ul
               id="completed-list"
@@ -128,5 +131,3 @@ function App() {
 }
 
 export default App;
-
-
